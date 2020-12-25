@@ -33,17 +33,17 @@ public class URLController {
 			String url = urlService.findById(key).getValue();
 			httpServletResponse.setHeader("Location", url);
 		} catch (Exception e) {
-			httpServletResponse.setHeader("Location", "/?error=");
+			httpServletResponse.setHeader("Location", "/?message=link inexistente");
 		}
 		httpServletResponse.setStatus(302);
 	}
 
 	@GetMapping("/")
-	public String index(Model model, @RequestParam Optional<String> error) {
+	public String index(Model model, @RequestParam Optional<String> message) {
 		model.addAttribute("date", new java.util.Date());
 		model.addAttribute("newUrl", new Url());
-		if(!error.isEmpty())
-			model.addAttribute("error", error.get());
+		if(!message.isEmpty())
+			model.addAttribute("message", message.get());
 		return "index";
 	}
 	
@@ -51,9 +51,9 @@ public class URLController {
 	public String add(@ModelAttribute Url newUrl) {
 		try {
 			urlService.save(newUrl);
-			return "redirect:/";
+			return "redirect:/?message=success";
 		} catch (Exception e) {			
-			return "redirect:/?error=link invalido";
+			return "redirect:/?message=link invalido";
 		}
 	}
 	

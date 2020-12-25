@@ -29,14 +29,16 @@ public class UrlServiceImpl implements UrlService {
 
 	@Override
 	public Url save(Url newUrl) throws Exception {
-		if (newUrl.getKey().isEmpty() || newUrl.getValue().isEmpty())
-			throw new Exception();
+		Boolean existe = false;
 		try {
-			if(findById(newUrl.getKey()) != null)
-				throw new Exception();				
+			findById(newUrl.getKey());
+			existe = true;		
 		} catch(Exception e) {		
 			
 		}
+		if (newUrl.getKey().isEmpty() || newUrl.getValue().isEmpty() || existe)
+			throw new Exception();
+		
 		String normalizedUrl = Normalizer.normalize(newUrl.getValue());
 		newUrl.setValue(normalizedUrl);
 		
