@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.heitt</groupId>
-	<artifactId>AcortadorDeUrl</artifactId>
+	<artifactId>url-shortener</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>AcortadorDeUrl</name>
+	<name>url-shortener</name>
 	<description>Acortador de url&apos;s</description>
 
 	<properties>
@@ -39,8 +39,12 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
 
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>

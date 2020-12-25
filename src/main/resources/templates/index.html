@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<linK rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<p th:text="${error}"/>
+	<h1>Redireccionador</h1>
+	<h2>Crea un nuevo link</h2>
+	<form action="#" method="POST"
+		th:action="@{/r}" th:object="${newUrl}">
+		<input type="text" name="key" placeholder="Url corto" th:field="*{key}"/>
+		<input type="text" name="value" placeholder="Url" th:field="*{value}"/>
+		<button type="submit">Crear</button>
+	</form>
+</body>
+</html>
