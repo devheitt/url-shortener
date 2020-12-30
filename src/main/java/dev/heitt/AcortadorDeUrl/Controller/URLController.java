@@ -27,7 +27,7 @@ public class URLController {
 		this.urlService = urlService;
 	}
 	
-	@GetMapping("/r/{key}")
+	@GetMapping("/{key}")
 	public void redirect(@PathVariable("key") String key, HttpServletResponse httpServletResponse) throws IOException {
 		try {
 			String url = urlService.findById(key).getValue();
@@ -47,13 +47,13 @@ public class URLController {
 		return "index";
 	}
 	
-	@PostMapping("/r")
+	@PostMapping("/")
 	public String add(@ModelAttribute Url newUrl) {
 		try {
 			urlService.save(newUrl);
-			return "redirect:/?message=success";
+			return "redirect:/?success";
 		} catch (Exception e) {			
-			return "redirect:/?message=link invalido";
+			return "redirect:/?error";
 		}
 	}
 	

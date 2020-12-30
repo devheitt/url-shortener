@@ -6,13 +6,16 @@
 <body>
 	<div class="login-page">
   	<div class="form">
-	<p th:text="${message}"/>
 	<h1>Redireccionador</h1>
 	<h2>Crea un nuevo link</h2>
     <form action="#" method="POST"
-		th:action="@{/r}" th:object="${newUrl}">
+		th:action="@{/}" th:object="${newUrl}">
 		<input type="text" name="key" placeholder="Url corto" th:field="*{key}"/>
 		<input type="text" name="value" placeholder="Url" th:field="*{value}"/>
+		<div class="margin">
+			<span th:if="${#httpServletRequest.getParameter('success')}" class="success">Exito!</span>
+			<span th:if="${#httpServletRequest.getParameter('error')}" class="error">Hubo un error :(</span>
+		</div>
 		<button type="submit">Crear</button>
 	</form>
   </div>

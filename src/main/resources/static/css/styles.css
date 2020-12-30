@@ -1,5 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+.margin{
+	margin: 1em;
+}
+.error{
+	color: red;
+}
+.success{
+	color: green;
+}
 .login-page {
   width: 35em;
   padding: 8% 0 0;
@@ -58,7 +67,7 @@
 .container {
   position: relative;
   z-index: 1;
-  max-width: 300px;
+  max-width: 500px;
   margin: 0 auto;
 }
 .container:before, .container:after {
