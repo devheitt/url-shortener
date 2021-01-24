@@ -9,9 +9,9 @@ import javax.persistence.Table;
 @Table(name="url")
 public class Url {
 	@Id
-	@Column(name="short")
+	@Column(name="key")
 	private String key;
-	@Column(name="long")
+	@Column(name="value")
 	private String value;
 	
 	public Url() {

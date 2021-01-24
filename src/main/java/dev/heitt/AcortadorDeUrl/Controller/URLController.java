@@ -51,7 +51,7 @@ public class URLController {
 	public String add(@ModelAttribute Url newUrl) {
 		try {
 			urlService.save(newUrl);
-			return "redirect:/?success";
+			return "redirect:/?success=" + newUrl.getKey();
 		} catch (Exception e) {			
 			return "redirect:/?error";
 		}
