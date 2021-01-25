@@ -1,2 +1,2 @@
 # url-shortener
-Simple url shortener made with Java and Spring Boot
+Simple url shortener made with Spring Boot and Thymeleaf
